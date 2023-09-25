@@ -1,38 +1,45 @@
 package jp.co.axa.apidemo.entities;
 
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+/**
+ * Entity class containing details of EMPLOYEE details as in database
+ * @author Sumanjula Roy
+ * @version 1.0
+ */
 @Entity
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name="EMPLOYEE")
 public class Employee {
 
-    @Getter
-    @Setter
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
 
-    @Getter
-    @Setter
+    //Unique ID of each employee
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Integer id;
+
+    //Name of Employee
     @Column(name="EMPLOYEE_NAME")
+    @NotEmpty
     private String name;
 
-    @Getter
-    @Setter
+    //Salary of employee
     @Column(name="EMPLOYEE_SALARY")
-    private Integer salary;
+    @NotNull
+    private Long salary;
 
-    @Getter
-    @Setter
+    //Organization department to which an employee belongs
     @Column(name="DEPARTMENT")
+    @NotEmpty
     private String department;
 
 }
