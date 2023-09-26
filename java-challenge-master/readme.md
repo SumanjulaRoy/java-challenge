@@ -51,7 +51,7 @@ and resolve SonarQube code issues to ensure optimum code quality.
 For this application, I performed following operations:
 - Enhanced the Spring Boot version to the latest version to utilise the latest annotations and JUNIT support.
 - Enhanced from old Swagger to OpenAPI specification compatible with latest Spring Boot
-- Enhanced REST APIs by providing proper Response Entities
+- Enhanced REST APIs by providing proper Response Entities, changed syntax and removed Sysout code.
 - Introduced Custom and Global Exception Handling scenarios in code
 - Introduced a custom REST API to find all employees in a particular department and wrote custom JPA query. 
 - Introduced OPENAPI specifications and code comments to make code more understandable to users.
@@ -61,6 +61,7 @@ For this application, I performed following operations:
 - Added proper code comments
 - Maintained proper package structure for classes as well as test classes
 - Added necessary configuration changes to application.properties file
+- Introduced few examples to showcase Java 8 stream feature, lombok annotations.
 
 Further application can be enhanced to introduce more custom APIS with business logic, introducing Spring Security,
 converting application.properties file to yml file for better readability. Database can be added rather than using H2
