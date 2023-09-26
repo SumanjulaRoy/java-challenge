@@ -43,8 +43,25 @@ Application (with the embedded H2 database) is ready to be used ! You can access
 
 #### Your experience in Java
 
-Please let us know more about your Java experience in a few sentences. 
-For example: 
-- I have 3 years experience in Java and I started to use Spring Boot from last year
-- I'm a beginner and just recently learned Spring Boot
-- I know Spring Boot very well and have been using it for many years
+Hello All, I have been primarily a backend developer for the last 8 years, working with Java and since the last 
+few years I have also worked on Spring Boot applications for Application Development and Enhancement. I have
+experience working in Agile methodology and along with developing backend REST APIs I also develop JUNIT test cases
+and resolve SonarQube code issues to ensure optimum code quality.
+
+For this application, I performed following operations:
+- Enhanced the Spring Boot version to the latest version to utilise the latest annotations and JUNIT support.
+- Enhanced from old Swagger to OpenAPI specification compatible with latest Spring Boot
+- Enhanced REST APIs by providing proper Response Entities
+- Introduced Custom and Global Exception Handling scenarios in code
+- Introduced a custom REST API to find all employees in a particular department and wrote custom JPA query. 
+- Introduced OPENAPI specifications and code comments to make code more understandable to users.
+- Added proper logs as applicable
+- Removed redundant annotations
+- Introduced DTO class to ensure communication from frontend to backend is happening via DTO and not Entity for security
+- Added proper code comments
+- Maintained proper package structure for classes as well as test classes
+- Added necessary configuration changes to application.properties file
+
+Further application can be enhanced to introduce more custom APIS with business logic, introducing Spring Security,
+converting application.properties file to yml file for better readability. Database can be added rather than using H2
+database.

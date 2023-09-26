@@ -1,5 +1,6 @@
 package jp.co.axa.apidemo.exception;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
  * @version 1.0
  */
 @ControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler {
 
     /**
@@ -34,6 +36,7 @@ public class GlobalExceptionHandler {
                 "EMPLOYEE_NOT_FOUND"
         );
 
+        log.error("Employee not found with given input");
         return new ResponseEntity<>(exceptionDetails, HttpStatus.NOT_FOUND);
     }
 

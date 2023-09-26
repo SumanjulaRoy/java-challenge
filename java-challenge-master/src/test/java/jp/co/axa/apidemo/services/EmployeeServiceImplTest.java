@@ -36,15 +36,18 @@ public class EmployeeServiceImplTest {
     private EmployeeServiceImpl employeeService;
 
     private static final Integer ID = 1;
+
+    private static final Integer INVALID_ID = 2;
     private static final String DEPARTMENT = "DEPARTMENT";
+
+    private static final String INVALID_DEPT = "INVALIDDEPT";
     private static final String NAME = "FIRSTNAME LASTNAME";
     private static final Long SALARY = 50000L;
 
     @Test
     public void testRetrieveEmployees() {
 
-        Employee employee = givenEmployee();
-        List<Employee> employeeList = Collections.singletonList(employee);
+        List<Employee> employeeList = Collections.singletonList(givenEmployee());
         when(employeeRepository.findAll()).thenReturn(employeeList);
         assertEquals(employeeList, employeeService.retrieveEmployees().stream()
                 .map(employeeDTO -> mapper.map(employeeDTO, Employee.class))
@@ -63,8 +66,8 @@ public class EmployeeServiceImplTest {
     @Test
     public void testGetEmployeeByInvalidId() {
 
-        when(employeeRepository.findById(2)).thenReturn(Optional.empty());
-        assertThrows(EmployeeNotFoundException.class, () -> employeeService.getEmployee(2),
+        when(employeeRepository.findById(INVALID_ID)).thenReturn(Optional.empty());
+        assertThrows(EmployeeNotFoundException.class, () -> employeeService.getEmployee(INVALID_ID),
                 "errorMessage");
     }
 
@@ -96,11 +99,30 @@ public class EmployeeServiceImplTest {
         doNothing().when(employeeRepository).deleteById(ID);
     }
 
+    @Test
+    public void testGetEmployeesByDepartment() {
+        List<Employee> employeeList = Collections.singletonList(givenEmployee());
+        when(employeeRepository.findByDepartmentIgnoreCase(DEPARTMENT)).thenReturn(employeeList);
+        assertEquals(employeeList, employeeService.getEmployeesByDepartment(DEPARTMENT).stream()
+                .map(employeeDTO -> mapper.map(employeeDTO, Employee.class))
+                .collect(Collectors.toList()));
+    }
+
+    @Test
+    public void testGetEmployeeByInvalidDept() {
+
+        when(employeeRepository.findByDepartmentIgnoreCase(INVALID_DEPT)).thenReturn(Collections.EMPTY_LIST);
+        assertThrows(EmployeeNotFoundException.class, () -> employeeService.getEmployeesByDepartment(INVALID_DEPT),
+                "errorMessage");
+    }
+
     private Employee givenEmployee() {
 
         return Employee.builder().id(ID).name(NAME).department(DEPARTMENT).salary(SALARY)
                 .build();
 
     }
+
+
 
 }

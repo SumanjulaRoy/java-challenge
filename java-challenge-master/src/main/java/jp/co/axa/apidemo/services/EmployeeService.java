@@ -48,4 +48,11 @@ public interface EmployeeService {
      * @return : Updated details of the employee in {@link EmployeeDTO} structure
      */
     public EmployeeDTO updateEmployee(EmployeeDTO employee);
+
+    /**
+     * Method to fetch all employees tagged to a particular department
+     * @param department : Department name for which user wants to fetch all employees
+     * @return : {List<{@link EmployeeDTO}} List of all employees of a particular department
+     */
+    public List<EmployeeDTO> getEmployeesByDepartment(String department);
 }
