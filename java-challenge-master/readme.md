@@ -65,4 +65,4 @@ For this application, I performed following operations:
 
 Further application can be enhanced to introduce more custom APIS with business logic, introducing Spring Security,
 converting application.properties file to yml file for better readability. Database can be added rather than using H2
-database.
+database. New APIs can be designed with business logic scenarios.
